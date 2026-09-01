@@ -7,6 +7,7 @@ import { TranslocoDirective } from '@ngneat/transloco';
 @Component({
     selector: 'shpp-nav-player-info',
     templateUrl: './nav-player-info.component.html',
+    styleUrls: ['./nav-player-info.component.scss'],
     standalone: true,
     imports: [TranslocoDirective, PlayerNameFormComponent, NgbTooltip]
 })

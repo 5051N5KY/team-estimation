@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.game-info-row {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-width: 0;
+  font-size: .82rem;
+}

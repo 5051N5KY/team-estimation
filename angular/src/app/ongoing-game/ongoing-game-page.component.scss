@@ -8,6 +8,36 @@
   flex-direction: column;
 }
 
+.game-header {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game-header__meta {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.game-header__player {
+  padding-left: 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--navbar-text-color) 35%, transparent);
+}
+
+@media (max-width: 575.98px) {
+  .game-header {
+    gap: .6rem;
+  }
+
+  .game-header__player {
+    padding-left: .65rem;
+  }
+}
+
 .bg-body-secondary {
   background-color: var(--theme-surface) !important;
   border-top: 2px solid var(--theme-muted);

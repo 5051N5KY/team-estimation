@@ -12,6 +12,7 @@ import { QrCodeModalContentComponent } from "./qr-code-modal-content/qr-code-mod
 @Component({
     selector: 'shpp-game-name',
     templateUrl: './nav-game-name.component.html',
+    styleUrls: ['./nav-game-name.component.scss'],
     standalone: true,
     imports: [TranslocoDirective, NgIf, NgbTooltip]
 })

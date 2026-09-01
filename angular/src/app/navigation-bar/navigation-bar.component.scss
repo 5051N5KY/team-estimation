@@ -7,6 +7,29 @@ nav {
   box-shadow: 0 3px 12px color-mix(in srgb, var(--theme-muted) 45%, transparent);
 }
 
+.navbar-shell {
+  min-height: 4.5rem;
+  padding: .6rem 1rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "brand content theme";
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-home {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  grid-area: content;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
 .min-w {
   min-width: 0;
 }
@@ -19,6 +42,7 @@ nav {
 }
 
 .theme-toggle {
+  grid-area: theme;
   min-width: 2.5rem;
   height: 2.5rem;
   padding-inline: .65rem;
@@ -38,4 +62,28 @@ nav {
 .theme-name {
   font-size: .8rem;
   font-weight: 700;
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-shell {
+    min-height: auto;
+    padding: .5rem .75rem .65rem;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "brand theme"
+      "content content";
+    gap: .45rem .75rem;
+  }
+
+  .brand-home {
+    justify-self: start;
+  }
+
+  .header-content {
+    width: 100%;
+  }
+
+  .theme-toggle {
+    justify-self: end;
+  }
 }

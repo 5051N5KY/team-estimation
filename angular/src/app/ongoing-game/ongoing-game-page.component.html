@@ -1,10 +1,12 @@
 <shpp-container>
   <ng-container navbar>
-    <div class="d-flex flex-column flex-grow-1 min-w">
-      <shpp-game-name class="d-flex" />
-      <shpp-game-info class="d-flex" />
+    <div class="game-header">
+      <div class="game-header__meta min-w">
+        <shpp-game-name />
+        <shpp-game-info />
+      </div>
+      <shpp-nav-player-info class="game-header__player" />
     </div>
-    <shpp-nav-player-info />
   </ng-container>
 
   <ng-container content>

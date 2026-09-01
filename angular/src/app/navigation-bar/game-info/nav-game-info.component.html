@@ -1,8 +1,7 @@
 <ng-container *ngIf="currentGameInfo">
-  <ng-container *ngIf="currentGameInfo">
+  <div class="game-info-row">
     <span class="text-muted ellipsis" *transloco="let n; read 'deckNames'">{{ n(currentGameInfo.deck) }}</span>
-  </ng-container>
-  <button class="btn btn-outline-light btn-sm mx-2"
+    <button class="btn btn-outline-light btn-sm"
           [attr.aria-label]="t('edit')"
           [ngbTooltip]="t('edit')"
           placement="bottom"
@@ -12,6 +11,7 @@
       <use xlink:href="assets/bootstrap-icons.svg#pencil-fill"/>
     </svg>
   </button>
+  </div>
 </ng-container>
 
 <ng-template #gameEdit let-offcanvas>

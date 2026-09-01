@@ -11,6 +11,7 @@ import { TranslocoDirective } from '@ngneat/transloco';
 @Component({
     selector: 'shpp-game-info',
     templateUrl: './nav-game-info.component.html',
+    styleUrls: ['./nav-game-info.component.scss'],
     standalone: true,
     imports: [TranslocoDirective, NgIf, NgbTooltip, GameFormComponent]
 })

@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.game-name-row {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-width: 0;
+}
+
+.game-name {
+  min-width: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.game-actions {
+  flex-shrink: 0;
+}

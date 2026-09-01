@@ -12,10 +12,10 @@
   </div>
 </ng-template>
 
-<div class="d-flex flex-column align-items-end">
-  <div>
-    {{ userInformation.getName() }}
-    <div class="btn-group mx-2" role="group" *transloco="let t">
+<div class="player-panel">
+  <div class="player-name-row">
+    <span class="player-name ellipsis">{{ userInformation.getName() }}</span>
+    <div class="btn-group" role="group" *transloco="let t">
       <button class="btn btn-outline-light btn-sm"
               [attr.aria-label]="t('buttons.edit')"
               [ngbTooltip]="t('navbar.playerInfo.actions.editPlayerName')"
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="form-check form-switch form-check-reverse mt-1" *transloco="let t">
+  <div class="spectator-switch form-check form-switch form-check-reverse" *transloco="let t">
     <input class="form-check-input" type="checkbox" role="switch" id="spectator-checkbox"
            [checked]="userInformation.isSpectator()"
            (change)="toggleSpectator()">
