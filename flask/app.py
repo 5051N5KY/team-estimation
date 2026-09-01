@@ -1,4 +1,5 @@
 import errno
+import hashlib
 import os
 import sys
 import uuid
@@ -38,6 +39,8 @@ app_root = os.getenv('APP_ROOT', '/')
 if not app_root.endswith('/'):
     app_root += '/'
 app_title = os.getenv('APP_TITLE', 'Team Estimation')
+with open(os.path.join(app.static_folder, 'main.js'), 'rb') as main_bundle:
+    asset_version = hashlib.sha256(main_bundle.read()).hexdigest()[:12]
 
 
 @app.route('/create', methods=['POST'])
@@ -55,7 +58,12 @@ def serve_file(file, ext):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    return render_template('index.html', app_root=app_root, app_title=app_title)
+    return render_template(
+        'index.html',
+        app_root=app_root,
+        app_title=app_title,
+        asset_version=asset_version,
+    )
 
 
 @app.route('/favicon.ico')

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { getBrowserCultureLang, getBrowserLang, TranslocoService } from '@ngneat/transloco';
-import { TranslocoLocaleService } from '@ngneat/transloco-locale';
+import { getBrowserLang, TranslocoService } from '@ngneat/transloco';
 import { RouterOutlet } from '@angular/router';
 import { ToastsContainerComponent } from './shared/toast/toast-container.component';
 
@@ -13,9 +12,7 @@ import { ToastsContainerComponent } from './shared/toast/toast-container.compone
 })
 export class AppComponent {
 
-  constructor(private transloco: TranslocoService,
-              private translocoLocale: TranslocoLocaleService) {
+  constructor(private transloco: TranslocoService) {
     transloco.setActiveLang(getBrowserLang() || 'en');
-    translocoLocale.setLocale(getBrowserCultureLang())
   }
 }

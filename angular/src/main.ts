@@ -55,8 +55,34 @@ bootstrapApplication(AppComponent, {
     providers: [
       provideTranslocoLocale({
         langToLocaleMapping: {
+          af: 'af-ZA',
+          ar: 'ar-SA',
+          ca: 'ca-ES',
+          cs: 'cs-CZ',
+          da: 'da-DK',
+          de: 'de-DE',
+          el: 'el-GR',
           en: 'en-US',
-          fr: 'fr-FR'
+          es: 'es-ES',
+          fi: 'fi-FI',
+          fr: 'fr-FR',
+          he: 'he-IL',
+          hu: 'hu-HU',
+          it: 'it-IT',
+          ja: 'ja-JP',
+          ko: 'ko-KR',
+          nl: 'nl-NL',
+          no: 'no-NO',
+          pl: 'pl-PL',
+          pt: 'pt-PT',
+          ro: 'ro-RO',
+          ru: 'ru-RU',
+          sr: 'sr-RS',
+          sv: 'sv-SE',
+          tr: 'tr-TR',
+          uk: 'uk-UA',
+          vi: 'vi-VN',
+          zh: 'zh-CN'
         }
       }),
       provideRouter(routes),
