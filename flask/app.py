@@ -9,7 +9,7 @@ from flask_socketio import SocketIO, join_room, leave_room, emit
 from peewee import SqliteDatabase, OperationalError
 
 from permission_check import check_db_file_permissions
-from gamestate.exceptions import PlanningPokerException
+from gamestate.exceptions import TeamEstimationException
 from gamestate.game_manager import GameManager
 from gamestate.models import database_proxy, StoredGame
 
@@ -37,6 +37,7 @@ gm = GameManager()
 app_root = os.getenv('APP_ROOT', '/')
 if not app_root.endswith('/'):
     app_root += '/'
+app_title = os.getenv('APP_TITLE', 'Team Estimation')
 
 
 @app.route('/create', methods=['POST'])
@@ -54,7 +55,7 @@ def serve_file(file, ext):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    return render_template('index.html', app_root=app_root)
+    return render_template('index.html', app_root=app_root, app_title=app_title)
 
 
 @app.route('/favicon.ico')
@@ -167,7 +168,7 @@ def end_turn():
 @socketio.on_error()
 def on_error_handler(e):
     body = {'error': True, 'message': str(e), 'code': 0}
-    if isinstance(e, PlanningPokerException):
+    if isinstance(e, TeamEstimationException):
         body['code'] = e.code
     return body
 

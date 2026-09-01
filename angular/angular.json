@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "self-host-planning-poker": {
+    "team-estimation": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
             "customWebpackConfig": {
               "path": "webpack.config.js"
             },
-            "outputPath": "dist/self-host-planning-poker",
+            "outputPath": "dist/team-estimation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "self-host-planning-poker:build:production"
+              "buildTarget": "team-estimation:build:production"
             },
             "development": {
-              "buildTarget": "self-host-planning-poker:build:development"
+              "buildTarget": "team-estimation:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "self-host-planning-poker:build"
+            "buildTarget": "team-estimation:build"
           }
         },
         "test": {

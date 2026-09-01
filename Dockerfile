@@ -5,13 +5,13 @@ RUN npm config set update-notifier false && \
   npm config set fund false && \
   npm config set audit false && \
   npm ci
-RUN npm run build self-host-planning-poker
+RUN npm run build team-estimation
 
 FROM docker.io/library/python:3.11.7-alpine3.18
 RUN adduser -H -D -u 1001 -G root default
 WORKDIR /app
 COPY --chown=1001:0 flask/ ./
-COPY --chown=1001:0 --from=node_builder /angular/dist/self-host-planning-poker ./static
+COPY --chown=1001:0 --from=node_builder /angular/dist/team-estimation ./static
 RUN pip install --upgrade pip && \
   pip install --requirement requirements.txt && \
   mkdir /data && \

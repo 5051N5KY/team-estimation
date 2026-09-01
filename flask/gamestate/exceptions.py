@@ -1,26 +1,26 @@
-class PlanningPokerException(Exception):
+class TeamEstimationException(Exception):
     code = 0
 
 
-class DeckDoesNotExistError(PlanningPokerException):
+class DeckDoesNotExistError(TeamEstimationException):
     code = 4001
 
 
-class GameNotOngoingError(PlanningPokerException):
+class GameNotOngoingError(TeamEstimationException):
     code = 4002
 
 
-class PlayerNotInGameError(PlanningPokerException):
+class PlayerNotInGameError(TeamEstimationException):
     code = 4003
 
 
-class GameDoesNotExistError(PlanningPokerException):
+class GameDoesNotExistError(TeamEstimationException):
     code = 4004
 
 
-class InvalidCardValueError(PlanningPokerException):
+class InvalidCardValueError(TeamEstimationException):
     code = 4005
 
 
-class SpectatorCannotPlayError(PlanningPokerException):
+class SpectatorCannotPlayError(TeamEstimationException):
     code = 4006

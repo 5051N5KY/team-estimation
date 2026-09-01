@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'new',
     loadComponent: () => import('./app/new-game/new-game-page.component'),
-    title: 'Self-Host Planning Poker'
+    title: 'Team Estimation'
   },
   {
     path: 'game/:gameId',

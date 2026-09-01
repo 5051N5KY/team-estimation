@@ -3,7 +3,7 @@
     "game": "To jest \"gra\" jak \"gra w szachy\", nie jak \"gra imprezowa\"."
   },
   "navbar": {
-    "appTitle": "Self-Host Planning Poker",
+    "appTitle": "Team Estimation",
     "appIcon": "Ikona aplikacji",
     "homeLink": "Strona główna",
     "playerInfo": {
@@ -39,7 +39,7 @@
     "T_SHIRTS": "Rozmiar koszulek"
   },
   "ongoingGame": {
-    "page-title": "Poker planistyczny {{gameName}}"
+    "page-title": "Estymacja zespołowa {{gameName}}"
   },
   "setUsername": {
     "page-title": "Wprowadź nazwę użytkownika przed dołączeniem do gry"

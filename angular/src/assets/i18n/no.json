@@ -3,7 +3,7 @@
     "game": "In the project, it's \"game\" as in \"a game of chess\", not as in \"a party game\"."
   },
   "navbar": {
-    "appTitle": "Self-Host Planning Poker",
+    "appTitle": "Team Estimation",
     "appIcon": "Application icon",
     "homeLink": "Homepage",
     "playerInfo": {
@@ -39,7 +39,7 @@
     "T_SHIRTS": "T-Shirt Sizes"
   },
   "ongoingGame": {
-    "page-title": "Planning Poker {{gameName}}"
+    "page-title": "Team Estimation {{gameName}}"
   },
   "setUsername": {
     "page-title": "Please enter your name before joining the game"

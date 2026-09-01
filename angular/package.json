@@ -1,5 +1,5 @@
 {
-  "name": "self-host-planning-poker",
+  "name": "team-estimation",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "bundle:report": "source-map-explorer dist/self-host-planning-poker/**/*.js"
+    "bundle:report": "source-map-explorer dist/team-estimation/**/*.js"
   },
   "private": true,
   "dependencies": {
