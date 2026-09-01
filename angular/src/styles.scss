@@ -1,18 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primary: #198754;
+$primary: #565656;
 $enable-shadows: true;
-$color-mode-type: media-query;
+$color-mode-type: data;
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
 :root {
-  --card-color: #{$green-500};
-  --navbar-bg-color: #{$green-400};
-  --navbar-border-bottom-color: #{$green-800};
-  --navbar-text-color: white;
-  --navbar-muted-color: $gray-400;
+  --theme-background: #F2E2BA;
+  --theme-surface: #BAF2D8;
+  --theme-surface-alt: #BAF2BB;
+  --theme-accent: #BAD7F2;
+  --theme-highlight: #F2BAC9;
+  --theme-ink: #2B2B2B;
+  --theme-muted: #565656;
+  --card-color: #F2BAC9;
+  --navbar-bg-color: #BAD7F2;
+  --navbar-border-bottom-color: #F2BAC9;
+  --navbar-text-color: #2B2B2B;
+  --navbar-muted-color: #565656;
+  --bs-body-bg: var(--theme-background);
+  --bs-body-bg-rgb: 242, 226, 186;
+  --bs-body-color: var(--theme-ink);
+  --bs-body-color-rgb: 43, 43, 43;
+  --bs-secondary-bg: var(--theme-surface);
+  --bs-tertiary-bg: var(--theme-surface-alt);
+}
+
+body {
+  transition: color 180ms ease, background-color 180ms ease;
 }
 
 .bg-primary {
@@ -21,6 +38,54 @@ $color-mode-type: media-query;
   .text-muted {
     color: var(--navbar-muted-color) !important;
   }
+
+  .btn-outline-light {
+    --bs-btn-color: var(--navbar-text-color);
+    --bs-btn-border-color: var(--navbar-text-color);
+    --bs-btn-hover-color: var(--navbar-bg-color);
+    --bs-btn-hover-bg: var(--navbar-text-color);
+    --bs-btn-hover-border-color: var(--navbar-text-color);
+    --bs-btn-active-color: var(--navbar-bg-color);
+    --bs-btn-active-bg: var(--navbar-text-color);
+    --bs-btn-active-border-color: var(--navbar-text-color);
+  }
+}
+
+.btn-primary {
+  --bs-btn-color: var(--theme-ink);
+  --bs-btn-bg: var(--theme-highlight);
+  --bs-btn-border-color: var(--theme-ink);
+  --bs-btn-hover-color: var(--theme-ink);
+  --bs-btn-hover-bg: var(--theme-accent);
+  --bs-btn-hover-border-color: var(--theme-ink);
+  --bs-btn-active-color: var(--theme-ink);
+  --bs-btn-active-bg: var(--theme-surface-alt);
+  --bs-btn-active-border-color: var(--theme-ink);
+  --bs-btn-disabled-color: var(--theme-muted);
+  --bs-btn-disabled-bg: var(--theme-surface);
+  --bs-btn-disabled-border-color: var(--theme-muted);
+}
+
+.form-control,
+.form-select,
+.offcanvas,
+.modal-content {
+  background-color: var(--theme-surface);
+  color: var(--theme-ink);
+  border-color: var(--theme-muted);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--theme-surface-alt);
+  color: var(--theme-ink);
+  border-color: var(--theme-ink);
+  box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--theme-accent) 70%, transparent);
+}
+
+.form-check-input:checked {
+  background-color: var(--theme-highlight);
+  border-color: var(--theme-ink);
 }
 
 .btn-sm {
@@ -38,7 +103,7 @@ $color-mode-type: media-query;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $body-bg;
+  background-color: var(--theme-surface);
   transition: transform 200ms ease-in-out, background-color 100ms ease-in, outline-color 100ms ease-in;
 
   @media (prefers-reduced-motion: reduce) {
@@ -46,15 +111,7 @@ $color-mode-type: media-query;
   }
 
   &:not(.card-disabled, .dashed) {
-    box-shadow: 0 0 15px 0 $gray-400;
-  }
-
-  @include color-mode(dark) {
-    background-color: $gray-800;
-    color: white;
-    &:not(.card-disabled, .dashed) {
-      box-shadow: 0 0 15px 0 $gray-800;
-    }
+    box-shadow: 0 0 15px 0 color-mix(in srgb, var(--theme-muted) 55%, transparent);
   }
 }
 
@@ -64,13 +121,9 @@ $color-mode-type: media-query;
 }
 
 .card-disabled {
-  background: $gray-200;
-  outline-color: $gray-600;
-  color: $gray-700;
-  @include color-mode(dark) {
-    background: $gray-800;
-    color: $gray-600;
-  }
+  background: var(--theme-surface-alt);
+  outline-color: var(--theme-muted);
+  color: var(--theme-muted);
 }
 
 .svh-100 {

@@ -2,15 +2,9 @@
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
-$color-mode-type: media-query;
-
 nav {
-  border-bottom: 1px solid $gray-400;
-  box-shadow: 0 0 10px 0 $gray-400;
-  @include color-mode(dark) {
-    border-bottom-color: var(--navbar-border-bottom-color);
-    box-shadow: 0 0 10px 0 $gray-800;
-  }
+  border-bottom: 2px solid var(--navbar-border-bottom-color);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--theme-muted) 45%, transparent);
 }
 
 .min-w {
@@ -22,4 +16,26 @@ nav {
   @include media-breakpoint-up(sm) {
     height: 48px;
   }
+}
+
+.theme-toggle {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding-inline: .65rem;
+  border: 2px solid var(--navbar-text-color);
+  color: var(--navbar-text-color);
+  background: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+
+  &:hover, &:focus-visible {
+    color: var(--navbar-bg-color);
+    background: var(--navbar-text-color);
+    border-color: var(--navbar-text-color);
+  }
+}
+
+.theme-name {
+  font-size: .8rem;
+  font-weight: 700;
 }

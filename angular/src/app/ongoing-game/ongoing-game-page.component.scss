@@ -2,8 +2,6 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
-$color-mode-type: media-query;
-
 :host {
   flex-grow: 1;
   display: flex;
@@ -11,14 +9,9 @@ $color-mode-type: media-query;
 }
 
 .bg-body-secondary {
-  border-top: 1px solid $gray-300;
-  box-shadow: 0 0 10px 0 $gray-400;
-
-  @include color-mode(dark) {
-    // background-color: $gray-900 !important;
-    border-top-color: $gray-800 !important;
-    box-shadow: 0 0 10px 0 $gray-800 !important;
-  }
+  background-color: var(--theme-surface) !important;
+  border-top: 2px solid var(--theme-muted);
+  box-shadow: 0 -3px 12px color-mix(in srgb, var(--theme-muted) 40%, transparent);
 }
 
 shpp-turn-summary, shpp-card-picker {

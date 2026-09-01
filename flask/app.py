@@ -1,5 +1,5 @@
 import errno
-import hashlib
+import glob
 import os
 import sys
 import uuid
@@ -39,8 +39,21 @@ app_root = os.getenv('APP_ROOT', '/')
 if not app_root.endswith('/'):
     app_root += '/'
 app_title = os.getenv('APP_TITLE', 'Team Estimation')
-with open(os.path.join(app.static_folder, 'main.js'), 'rb') as main_bundle:
-    asset_version = hashlib.sha256(main_bundle.read()).hexdigest()[:12]
+
+
+def bundled_asset(name, extension):
+    matches = glob.glob(os.path.join(app.static_folder, f'{name}.*.{extension}'))
+    if len(matches) != 1:
+        raise RuntimeError(f'Expected one hashed {name} bundle, found {len(matches)}')
+    return os.path.basename(matches[0])
+
+
+bundled_assets = {
+    'main': bundled_asset('main', 'js'),
+    'polyfills': bundled_asset('polyfills', 'js'),
+    'runtime': bundled_asset('runtime', 'js'),
+    'styles': bundled_asset('styles', 'css'),
+}
 
 
 @app.route('/create', methods=['POST'])
@@ -62,7 +75,7 @@ def catch_all(path):
         'index.html',
         app_root=app_root,
         app_title=app_title,
-        asset_version=asset_version,
+        assets=bundled_assets,
     )
 
 

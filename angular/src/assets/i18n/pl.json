@@ -6,6 +6,10 @@
     "appTitle": "Team Estimation",
     "appIcon": "Ikona aplikacji",
     "homeLink": "Strona główna",
+    "theme": {
+      "useColorful": "Przełącz na motyw Colorful",
+      "useSadness": "Przełącz na motyw Sadness"
+    },
     "playerInfo": {
       "spectator": "Obserwator",
       "actions": {

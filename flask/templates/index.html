@@ -15,15 +15,40 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="msapplication-config" content="{{ app_root }}assets/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="{{ app_root }}styles.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ app_root }}overrides.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="{{ app_root }}styles.css"></noscript>
+  <script>
+    (() => {
+      try {
+        const stored = localStorage.getItem('team-estimation-theme');
+        const theme = stored === 'colorful' || stored === 'sadness'
+          ? stored
+          : (stored === 'dark' ? 'sadness' : 'colorful');
+        const palettes = {
+          colorful: ['#F2E2BA', '#BAF2D8', '#BAF2BB', '#BAD7F2', '#F2BAC9', '#2B2B2B', '#565656', '242, 226, 186'],
+          sadness: ['#E0E0E0', '#B3B3B3', '#848484', '#565656', '#848484', '#2B2B2B', '#565656', '224, 224, 224']
+        };
+        const names = ['--theme-background', '--theme-surface', '--theme-surface-alt', '--theme-accent', '--theme-highlight', '--theme-ink', '--theme-muted', '--bs-body-bg-rgb'];
+        const root = document.documentElement;
+        root.setAttribute('data-theme', theme);
+        root.setAttribute('data-bs-theme', 'light');
+        root.style.colorScheme = 'light';
+        names.forEach((name, index) => root.style.setProperty(name, palettes[theme][index]));
+        root.style.setProperty('--card-color', theme === 'colorful' ? '#F2BAC9' : '#565656');
+        root.style.setProperty('--navbar-bg-color', theme === 'colorful' ? '#BAD7F2' : '#565656');
+        root.style.setProperty('--navbar-border-bottom-color', theme === 'colorful' ? '#F2BAC9' : '#2B2B2B');
+        root.style.setProperty('--navbar-text-color', theme === 'colorful' ? '#2B2B2B' : '#E0E0E0');
+        root.style.setProperty('--navbar-muted-color', theme === 'colorful' ? '#565656' : '#B3B3B3');
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ app_root }}{{ assets.styles }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ app_root }}assets/overrides.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ app_root }}{{ assets.styles }}"></noscript>
 </head>
 <body>
   <shpp-root>
-    <script src="{{ app_root }}runtime.js" type="module"></script>
-    <script src="{{ app_root }}polyfills.js" type="module"></script>
-    <script src="{{ app_root }}main.js?v={{ asset_version }}" type="module"></script>
+    <script src="{{ app_root }}{{ assets.runtime }}" type="module"></script>
+    <script src="{{ app_root }}{{ assets.polyfills }}" type="module"></script>
+    <script src="{{ app_root }}{{ assets.main }}" type="module"></script>
   </shpp-root>
 </body>
 </html>

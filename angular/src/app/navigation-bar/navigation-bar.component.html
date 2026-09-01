@@ -1,10 +1,19 @@
-<nav class="bg-primary">
+<nav class="bg-primary" *transloco="let t; read 'navbar'">
   <div class="container-fluid d-flex flex-row align-items-center p-2 ps-2 pe-2 ps-md-3 pe-md-3">
-    <div *transloco="let t; read 'navbar'">
+    <div>
       <a href="/new" [attr.aria-label]="t('homeLink')">
         <img class="me-2 me-md-3 icon" [src]="'assets/icon.svg' | baseHref " [alt]="t('appIcon')" />
       </a>
     </div>
     <ng-content></ng-content>
+    <button
+      type="button"
+      class="theme-toggle btn btn-sm ms-auto flex-shrink-0 d-inline-flex align-items-center justify-content-center gap-1"
+      (click)="theme.toggle()"
+      [attr.aria-label]="theme.theme === 'colorful' ? t('theme.useSadness') : t('theme.useColorful')"
+      [attr.title]="theme.theme === 'colorful' ? t('theme.useSadness') : t('theme.useColorful')">
+      <span aria-hidden="true">{{ theme.theme === 'colorful' ? '🌈' : '☁' }}</span>
+      <span class="theme-name d-none d-sm-inline">{{ theme.theme === 'colorful' ? 'Colorful' : 'Sadness' }}</span>
+    </button>
   </div>
 </nav>
